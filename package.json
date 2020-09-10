@@ -1,0 +1,65 @@
+{
+  "name": "kelvinmodesto.api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/kelvinmodesto/kelvinmodesto.api",
+  "author": "Kelvin Modesto <km.modesto@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "commit": "npx git-cz",
+    "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
+    "start": "node --inspect=5858 -r ts-node/register src/bin/server.ts",
+    "start:watch": "./node_modules/.bin/nodemon",
+    "test": "./node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-emoji": "^1.2.2",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "heroku": "^7.42.13",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.3.0",
+    "nodemon": "^2.0.4",
+    "ts-jest": "^26.3.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "./node_modules/.bin/lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "./node_modules/.bin/eslint --max-warnings=0"
+    ]
+  }
+}
