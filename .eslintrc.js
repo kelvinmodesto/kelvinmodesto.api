@@ -25,7 +25,6 @@ module.exports = {
     'consistent-return': 'off',
     'no-console': ['error', { allow: ['error'] }],
     'no-bitwise': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
   },
   settings: {
     'import/resolver': {
