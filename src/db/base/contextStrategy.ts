@@ -2,9 +2,11 @@ import { IDb } from '@interfaces/IDb';
 
 export default class ContextStrategy implements IDb {
   public database: any;
+
   constructor(database: any) {
     this.database = database;
   }
+
   public create(item: any = {}) {
     return this.database.create(item);
   }
