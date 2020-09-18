@@ -1,7 +1,7 @@
 export interface IDb {
-  create(item: unknown): unknown;
-  read(item: unknown): unknown;
-  update(id: string, item: unknown): unknown;
-  delete(id: string): unknown;
-  isConnected(): unknown;
+  create(item: any): any;
+  read(item: any): any;
+  update(id: string, item: any): any;
+  delete(id: string): any;
+  isConnected(): any;
 }
